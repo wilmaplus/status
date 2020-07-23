@@ -113,11 +113,6 @@ define("HEAD_DEPENDENCIES",
         array(
             "type" => "css",
             "minifyAvailable" => false,
-            "local" => "edison_web.css",
-        ),
-        array(
-            "type" => "css",
-            "minifyAvailable" => false,
             "local" => "angular-material.min.css",
             "remote" => "https://ajax.googleapis.com/ajax/libs/angular_material/1.1.21/angular-material.min.css"
         ),
