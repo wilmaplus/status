@@ -20,5 +20,8 @@ const fi_lang = {
     "notifier": "Ilmoitukset",
     "notifier_desc": "Kokeista, tuntimerkinnöistä ja tiedotteista",
     "internet_error": "Tarkista internet-yhteys ja yritä uudelleen",
-    "updated": "Päivitetty viimeksi"
+    "updated": "Päivitetty viimeksi",
+    "done_help": "tarkoittaa, että palvelin toimii normaalisti",
+    "x_help": "tarkoittaa, että palvelin on kaatunut tai ei ole tavoitettavissa",
+    "pending_help": "tarkoittaa, että korjaustyö on tulossa, tai menossa parhaillaan"
 }

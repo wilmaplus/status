@@ -7,7 +7,7 @@ const en_lang = {
     "404_error": "404 not found",
     "404_desc": "File or resource you were searching is missing or moved to another place",
     "go_back": "Go back",
-    "guide": "What do icons mean?",
+    "guide": "What do the icons mean?",
     "status": "Status",
     "maintenance": "Maintenance",
     "duration": "Duration",
@@ -20,5 +20,8 @@ const en_lang = {
     "notifier": "Notifications",
     "notifier_desc": "For Exams, Lesson Notes and Announcements",
     "internet_error": "Check your internet connection and try again",
-    "updated": "Last updated at"
+    "updated": "Last updated at",
+    "done_help": "means that server functions correctly",
+    "x_help": "means that server has crashed or is unreachable",
+    "pending_help": "means that maintenance is upcoming, or ongoing"
 }
