@@ -16,9 +16,11 @@
                 <md-button aria-label="Help" class="md-icon-button" ng-click="openHelp();" style="margin-top: -5px;">
                     <md-icon md-font-font="md">help</md-icon>
                 </md-button>
+
             </md-card-title>
 
             <md-card-content>
+                <span ng-show="loaded && !error">{{'updated' | translate}} {{getDateTime(updated)}}</span>
                 <md-tabs md-border-bottom md-dynamic-height md-swipe-content>
                     <md-tab label="{{'status' | translate}}" md-theme="default">
                         <md-list flex ng-show="loaded && !error">
@@ -49,7 +51,8 @@
                             <span>{{ error_reason }}</span>
                         </div>
                     </md-tab>
-                    <md-tab label="{{'maintenance' | translate}}" md-theme="default">
+                    <md-tab label="{{'maintenance' | translate}} {{(maintenancejobs | filter:{done: false}).length ? '('+(maintenancejobs | filter:{done: false}).length+')' : '' }} "
+                            md-theme="default">
                         <md-list flex ng-show="loaded && !error">
                             <md-list-item class="md-3-line" ng-click="null"
                                           ng-repeat="maintenancejob in maintenancejobs | filter:{done: false}"

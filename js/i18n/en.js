@@ -19,5 +19,6 @@ const en_lang = {
     "apiserver_desc": "Engine which runs Wilma Plus",
     "notifier": "Notifications",
     "notifier_desc": "For Exams, Lesson Notes and Announcements",
-    "internet_error": "Check your internet connection and try again"
+    "internet_error": "Check your internet connection and try again",
+    "updated": "Last updated at"
 }

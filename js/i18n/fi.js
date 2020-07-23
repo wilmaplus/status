@@ -19,5 +19,6 @@ const fi_lang = {
     "apiserver_desc": "Moottori joka pyörittää Wilma Plussaa",
     "notifier": "Ilmoitukset",
     "notifier_desc": "Kokeista, tuntimerkinnöistä ja tiedotteista",
-    "internet_error": "Tarkista internet-yhteys ja yritä uudelleen"
+    "internet_error": "Tarkista internet-yhteys ja yritä uudelleen",
+    "updated": "Päivitetty viimeksi"
 }

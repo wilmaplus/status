@@ -12,6 +12,9 @@ function mainController($scope, $mdThemingProvider, $mdDialog, $http, $location,
     $scope.getDate = function (date) {
         return new Date(date).toLocaleDateString()
     }
+    $scope.getDateTime = function (date) {
+        return new Date(date).toLocaleString()
+    }
     $scope.getTime = function (origDate, date) {
         origDate = origDate.replace(" ", "T");
         date = date.replace(" ", "T");
