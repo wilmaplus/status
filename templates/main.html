@@ -1,0 +1,111 @@
+<!--
+  ~ Copyright (c) 2020 Wilma Plus. All rights reserved.
+  ~ @author developerfromjokela
+  -->
+
+<md-content layout-fill>
+    <div layout="column" layout-align="center center" layout-fill>
+        <md-card md-theme-watch style="padding: 13px;">
+            <md-card-title>
+                <md-card-title-text md-truncate>
+                    <span class="md-headline">{{ 'app_name' | translate }}</span>
+                </md-card-title-text>
+                <md-button aria-label="Menu" class="md-icon-button" ng-click="refresh();" style="margin-top: -5px;">
+                    <md-icon md-font-font="md">refresh</md-icon>
+                </md-button>
+                <md-button aria-label="Help" class="md-icon-button" ng-click="openHelp();" style="margin-top: -5px;">
+                    <md-icon md-font-font="md">help</md-icon>
+                </md-button>
+            </md-card-title>
+
+            <md-card-content>
+                <md-tabs md-border-bottom md-dynamic-height md-swipe-content>
+                    <md-tab label="{{'status' | translate}}" md-theme="default">
+                        <md-list flex ng-show="loaded && !error">
+                            <md-list-item class="md-3-line" ng-click="null" ng-repeat="server in servers">
+                                <p class="md-avatar">
+                                    <md-icon md-font-set="md"
+                                             style="color: {{server.available ? '#0bd93e' : '#e01009'}}; height: 32px; width: 32px; margin: 6px; font-size: 32px;">
+                                        {{server.available ? 'done' : 'close'}}
+                                    </md-icon>
+                                </p>
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>{{ server.name }}</h3>
+                                    <h4>{{ server.desc }}</h4>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                        <div layout="column" layout-align="center center" layout-fill ng-show="!loaded && !error">
+                            <md-progress-circular md-diameter="60" style="margin: 30px;"></md-progress-circular>
+                        </div>
+                        <div layout-align="center center" layout-fill
+                             ng-show="error"
+                             style="text-align: center; height: 120px; margin-bottom: 40px; margin-top: 40px;">
+                            <md-icon md-font-set="md"
+                                     style="font-size: 50px; margin-bottom: 20px; margin-right: 30px;">
+                                error_outline
+                            </md-icon>
+                            <h3>{{ 'error_occurred' | translate }}</h3>
+                            <span>{{ error_reason }}</span>
+                        </div>
+                    </md-tab>
+                    <md-tab label="{{'maintenance' | translate}}" md-theme="default">
+                        <md-list flex ng-show="loaded && !error">
+                            <md-list-item class="md-3-line" ng-click="null"
+                                          ng-repeat="maintenancejob in maintenancejobs | filter:{done: false}"
+                                          style="max-width: 500px;">
+                                <p class="md-avatar">
+                                    <md-icon md-font-set="md"
+                                             style="color: {{maintenancejob.done ? '#0bd93e' : '#ccc90a'}}; height: 32px; width: 32px; margin: 6px; font-size: 32px;">
+                                        {{maintenancejob.done ? 'done' : 'access_time'}}
+                                    </md-icon>
+                                </p>
+
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>{{ maintenancejob.name }}</h3>
+                                    <h4>{{ maintenancejob.desc }}</h4>
+                                    <h4>{{ getDate(maintenancejob.date) }} {{ getTime(maintenancejob.date,
+                                        maintenancejob.start) }} - {{ getTime(maintenancejob.date, maintenancejob.end)
+                                        }}</h4>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+                            <md-subheader class="md-no-sticky">{{'done_maintenance' | translate}}</md-subheader>
+                            <md-list-item class="md-3-line" ng-click="null"
+                                          ng-repeat="maintenancejob in maintenancejobs | filter:{done: true}"
+                                          style="max-width: 500px;">
+                                <p class="md-avatar">
+                                    <md-icon md-font-set="md"
+                                             style="color: {{maintenancejob.done ? '#0bd93e' : '#ccc90a'}}; height: 32px; width: 32px; margin: 6px; font-size: 32px;">
+                                        {{maintenancejob.done ? 'done' : 'access_time'}}
+                                    </md-icon>
+                                </p>
+
+                                <div class="md-list-item-text" layout="column">
+                                    <h3 style="text-decoration: line-through">{{ maintenancejob.name }}</h3>
+                                    <h4 style="text-decoration: line-through">{{ maintenancejob.desc }}</h4>
+                                    <h4 style="text-decoration: line-through">{{ getDate(maintenancejob.date) }} {{
+                                        getTime(maintenancejob.date, maintenancejob.start) }} - {{
+                                        getTime(maintenancejob.date, maintenancejob.end) }}</h4>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                        <div layout="column" layout-align="center center" layout-fill ng-show="!loaded && !error">
+                            <md-progress-circular md-diameter="60" style="margin: 30px;"></md-progress-circular>
+                        </div>
+                        <div layout-align="center center" layout-fill
+                             ng-show="error"
+                             style="text-align: center; height: 120px; margin-bottom: 40px; margin-top: 40px;">
+                            <md-icon md-font-set="md"
+                                     style="font-size: 50px; margin-bottom: 20px; margin-right: 30px;">
+                                error_outline
+                            </md-icon>
+                            <h3>{{ 'error_occurred' | translate }}</h3>
+                            <span>{{ error_reason }}</span>
+                        </div>
+                    </md-tab>
+                </md-tabs>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>

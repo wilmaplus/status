@@ -1,0 +1,32 @@
+<!--
+  ~ Copyright (c) 2020 Wilma Plus. All rights reserved.
+  ~ @author developerfromjokela
+  -->
+
+<md-dialog aria-describedby="dialogContent_4" aria-label="guide" class="_md md-transition-in"
+           ng-class="dialog.css" role="dialog" style="" tabindex="-1">
+    <md-dialog-content class="md-dialog-content" id="dialogContent_4" role="document" tabindex="-1">
+        <h2 class="md-title ng-binding">{{ 'guide' | translate }}</h2>
+        <!-- ngIf: ::dialog.mdHtmlContent -->
+        <!-- ngIf: ::!dialog.mdHtmlContent -->
+        <div class="md-dialog-content-body ng-scope" style="">
+            <div layout="column">
+                <p>
+                    <md-icon md-font-set="md"
+                             style="color: #0bd93e; height: 20px; width: 20px; margin: 6px; font-size: 20px;">
+                        done
+                    </md-icon>
+                    tarkoittaa, että palvelin toimii normaalisti
+                </p>
+                <p>
+                    <md-icon md-font-set="md"
+                             style="color: #e01009; height: 20px; width: 20px; margin: 6px; font-size: 20px;">
+                        close
+                    </md-icon>
+                    tarkoittaa, että palvelin on kaatunut tai ei ole tavoitettavissa
+                </p>
+            </div>
+        </div>
+        <!-- end ngIf: ::!dialog.mdHtmlContent -->
+    </md-dialog-content>
+</md-dialog>

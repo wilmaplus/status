@@ -10,6 +10,11 @@ require __DIR__."/components/head.php";
 ?>
 
 
+    <div ng-controller="WebCtl" id="popupContainer" ng-cloak="" ng-app="wilmaplus-status" style="width: 100% "
+         layout-fill>
+        <div ng-view layout-fill></div>
+    </div>
+
 
 <?php
 require __DIR__."/components/footer.php";

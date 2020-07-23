@@ -22,6 +22,21 @@ define("MINIFY_DEPENDENCIES_HTML", false);
 define("FOOTER_DEPENDENCIES", array(
     array(
         "type" => "js",
+        "minifyAvailable" => false,
+        "local" => "suncalc.js"
+    ),
+    array(
+        "type" => "js",
+        "minifyAvailable" => false,
+        "local" => "timezones.js"
+    ),
+    array(
+        "type" => "js",
+        "minifyAvailable" => false,
+        "local" => "sunrisecalc.js"
+    ),
+    array(
+        "type" => "js",
         "minifyAvailable" => true,
         "local" => "angular/angular.js",
         "remote" => "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"
@@ -77,12 +92,6 @@ define("FOOTER_DEPENDENCIES", array(
     array(
         "type" => "js",
         "minifyAvailable" => false,
-        "local" => "jquery-3.4.1.min.js",
-        "remote" => "https://code.jquery.com/jquery-3.4.1.min.js"
-    ),
-    array(
-        "type" => "js",
-        "minifyAvailable" => false,
         "local" => "i18n/fi.js",
     ),
     array(
@@ -90,10 +99,16 @@ define("FOOTER_DEPENDENCIES", array(
         "minifyAvailable" => false,
         "local" => "i18n/en.js",
     ),
+
     array(
         "type" => "js",
         "minifyAvailable" => false,
         "local" => "utils.js",
+    ),
+    array(
+        "type" => "js",
+        "minifyAvailable" => false,
+        "local" => "controllers/main.js",
     ),
     array(
         "type" => "js",
@@ -107,12 +122,6 @@ define("HEAD_DEPENDENCIES",
         array(
             "type" => "css",
             "minifyAvailable" => false,
-            "local" => "ubnt_font.css",
-            "remote" => "https://fonts.googleapis.com/css?family=Ubuntu:regular"
-        ),
-        array(
-            "type" => "css",
-            "minifyAvailable" => false,
             "local" => "angular-material.min.css",
             "remote" => "https://ajax.googleapis.com/ajax/libs/angular_material/1.1.21/angular-material.min.css"
         ),
@@ -122,10 +131,15 @@ define("HEAD_DEPENDENCIES",
             "remote" => "https://fonts.googleapis.com/icon?family=Material+Icons"
         ),
         array(
-            "type" => "js",
-            "minifyAvailable" => true,
-            "local" => "dexie.js",
-            "remote" => "https://unpkg.com/dexie@2.0.4/dist/dexie.js"
+            "type" => "css",
+            "minifyAvailable" => false,
+            "local" => "ubnt_font.css",
+            "remote" => "https://fonts.googleapis.com/css?family=Ubuntu:regular"
+        ),
+        array(
+            "type" => "css",
+            "minifyAvailable" => false,
+            "local" => "wilmaplus.css"
         ),
     ));
 

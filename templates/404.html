@@ -1,0 +1,24 @@
+<!--
+  ~ Copyright (c) 2020 Wilma Plus. All rights reserved.
+  ~ @author developerfromjokela
+  -->
+
+<md-content layout-fill>
+    <div layout="column" layout-align="center center" layout-fill="">
+        <md-card md-theme-watch style="padding: 13px; width: auto;">
+            <md-card-content>
+                <div layout="row" layout-align="start center">
+                    <p>
+                        <md-icon md-font-set="md" style="height: 32px; width: 32px; margin: 6px; font-size: 32px;">
+                            help_outline
+                        </md-icon>
+                    </p>
+                    <h2>{{ '404_error' | translate }}</h2></div>
+                <p>{{ '404_desc' | translate }}</p>
+            </md-card-content>
+            <md-card-actions>
+                <md-button ng-click="navigateToPage('/')">{{ 'go_back' | translate }}</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>
