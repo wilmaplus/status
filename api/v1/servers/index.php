@@ -6,7 +6,6 @@
 
 require dirname(dirname(dirname(__DIR__))) . "/config/config.php";
 header('Content-type:application/json;charset=utf-8');
-
 $status = null;
 if (file_exists(__DIR__ . "/.cache") && is_dir(__DIR__ . "/.cache")) {
     if (file_exists(__DIR__ . "/.cache/status.json")) {
@@ -16,7 +15,7 @@ if (file_exists(__DIR__ . "/.cache") && is_dir(__DIR__ . "/.cache")) {
         foreach (MAINTENANCE as $maintenance) {
             array_push($maintenances, maintenanceToApiFormat($maintenance));
         }
-        $response = array("servers" => $status, "maintenances" => $maintenances);
+        $response = array("status" => true, "servers" => $status['servers'], "maintenances" => $maintenances, "refresh_date" => $status['refreshed']);
         echo json_encode($response);
         exit;
     } else

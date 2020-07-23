@@ -1,0 +1,1 @@
+Run `gen.php` as cron!

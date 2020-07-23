@@ -4,5 +4,21 @@
  * @author developerfromjokela
  */
 
+date_default_timezone_set('Europe/Helsinki');
 define("TITLE", "Status - Wilma Plus");
 define("BASEURL", "/");
+
+
+function throwError($responseCode, $error) {
+    echo json_encode(array("status" => false, "cause" => $error));
+    http_response_code($responseCode);
+    exit;
+}
+
+define("SERVERS", array(
+    array("name" => "example", "desc" => "example_desc", "checkurl" => "https://example.com"),
+));
+
+define("MAINTENANCE", array(
+    array("name" => "example", "desc" => "example something happened", "date" => "2020-08-15", "start" => "2020-08-15 12:00", "end" => "2020-08-15 14:00"),
+));

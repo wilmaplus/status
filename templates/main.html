@@ -30,8 +30,8 @@
                                     </md-icon>
                                 </p>
                                 <div class="md-list-item-text" layout="column">
-                                    <h3>{{ server.name }}</h3>
-                                    <h4>{{ server.desc }}</h4>
+                                    <h3>{{ server.name | translate }}</h3>
+                                    <h4>{{ server.desc | translate}}</h4>
                                 </div>
                             </md-list-item>
                         </md-list>
@@ -62,14 +62,14 @@
                                 </p>
 
                                 <div class="md-list-item-text" layout="column">
-                                    <h3>{{ maintenancejob.name }}</h3>
+                                    <h3>{{ maintenancejob.name | translate }}</h3>
                                     <h4>{{ maintenancejob.desc }}</h4>
                                     <h4>{{ getDate(maintenancejob.date) }} {{ getTime(maintenancejob.date,
                                         maintenancejob.start) }} - {{ getTime(maintenancejob.date, maintenancejob.end)
                                         }}</h4>
                                 </div>
                             </md-list-item>
-                            <md-divider></md-divider>
+                            <md-divider ng-show="(maintenancejobs | filter:{done: false}).length"></md-divider>
                             <md-subheader class="md-no-sticky">{{'done_maintenance' | translate}}</md-subheader>
                             <md-list-item class="md-3-line" ng-click="null"
                                           ng-repeat="maintenancejob in maintenancejobs | filter:{done: true}"
@@ -82,7 +82,7 @@
                                 </p>
 
                                 <div class="md-list-item-text" layout="column">
-                                    <h3 style="text-decoration: line-through">{{ maintenancejob.name }}</h3>
+                                    <h3 style="text-decoration: line-through">{{ maintenancejob.name | translate }}</h3>
                                     <h4 style="text-decoration: line-through">{{ maintenancejob.desc }}</h4>
                                     <h4 style="text-decoration: line-through">{{ getDate(maintenancejob.date) }} {{
                                         getTime(maintenancejob.date, maintenancejob.start) }} - {{

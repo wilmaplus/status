@@ -15,4 +15,9 @@ foreach (SERVERS as $server) {
     array_push($serverStatus, $server);
 }
 
-file_put_contents(__DIR__ . "/status.json", json_encode($serverStatus));
+$date = new DateTime();
+$status = array("servers" => $serverStatus, "refreshed" => $date->format("Y-m-d H:i:s"));
+file_put_contents(__DIR__ . "/status.json", json_encode($status));
+
+echo "[ OK ] Cache\n";
+exit;

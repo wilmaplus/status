@@ -6,47 +6,9 @@
 
 function mainController($scope, $mdThemingProvider, $mdDialog, $http, $location, $translate) {
     $mdThemingProvider.theme("default");
-    var servers = [
-        {
-            'available': true,
-            'name': 'Sivusto',
-            'desc': "Viralliset verkkosivustot https://wilmaplus.fi"
-
-        },
-        {
-            'available': true,
-            'name': 'Rajapinta',
-            'desc': "Moottori joka pyörittää Wilma Plussaa"
-
-        },
-        {
-            'available': false,
-            'name': 'Ilmoitusjärjestelmä',
-            'desc': "Kokeiden, Tuntimerkintöjen ja Tiedotteiden ilmoitukset"
-
-        }
-    ];
-    var maintenance = [
-        {
-            'done': false,
-            'name': 'Ilmoitusjärjestelmä',
-            'desc': "Ilmoitusjärjestelmää siirretään toiselle palvelimelle",
-            'date': "2020-08-15",
-            'start': "2020-08-15 11:04",
-            'end': "2020-08-15 15:04"
-        },
-        {
-            'done': true,
-            'name': 'Ilmoitusjärjestelmä',
-            'desc': "Ilmoitusjärjestelmää siirretään toiselle palvelimelle",
-            'date': "2020-08-15",
-            'start': "2020-08-15 11:04",
-            'end': "2020-08-15 15:04"
-        }
-    ];
     $scope.loaded = false;
     $scope.error = false;
-    $scope.loading = true;
+    $scope.errorreason = "";
     $scope.getDate = function (date) {
         return new Date(date).toLocaleDateString()
     }
@@ -60,13 +22,34 @@ function mainController($scope, $mdThemingProvider, $mdDialog, $http, $location,
         } else
             return jsDate.toLocaleTimeString()
     }
-    $scope.maintenancejobs = maintenance;
-    $scope.servers = servers;
+    $scope.maintenancejobs = [];
+    $scope.servers = [];
     $scope.openHelp = function () {
         $mdDialog.show({
             templateUrl: baseURL + 'templates/guide.html',
             parent: angular.element(document.body),
             clickOutsideToClose: true,
         });
+    };
+    $scope.refresh = function () {
+        $scope.loaded = false;
+        $scope.error = false;
+        load();
     }
+
+    function load() {
+        get_request(baseURL + "api/v1/servers/", $http, $translate, function (data) {
+            $scope.error = false;
+            $scope.servers = data.servers;
+            $scope.maintenancejobs = data.maintenances;
+            $scope.updated = data.refresh_date;
+            $scope.loaded = true;
+        }, function (data) {
+            $scope.loaded = false;
+            $scope.error = true;
+            $scope.error_reason = data;
+        })
+    }
+
+    load();
 }

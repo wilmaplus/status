@@ -13,26 +13,23 @@ function log(message) {
         console.log(message);
 }
 
-function get_request(url, $http, $translate, $mdDialog, callback, errCallback = undefined) {
+function get_request(url, $http, $translate, callback, errCallback = undefined) {
     $http.get(url)
         .then(function (response) {
             if (response.data.status === true) {
                 callback(response.data);
             } else {
-                var unknownError = $mdDialog.alert()
-                    .title($translate.instant('error_occurred'))
-                    .textContent(response.data.cause)
-                    .ok($translate.instant('ok'));
-                $mdDialog.show(unknownError);
+                errCallback(response.data.cause);
             }
         }, function errorCallback(response) {
-            if (errCallback !== undefined)
-                errCallback(response);
-            var unknownError = $mdDialog.alert()
-                .title($translate.instant('error_occurred'))
-                .textContent(response.data.cause)
-                .ok($translate.instant('ok'));
-            $mdDialog.show(unknownError);
+            if (response.status !== -1) {
+                if (errCallback !== undefined)
+                    errCallback(response.data.cause);
+            } else {
+                if (errCallback !== undefined)
+                    errCallback($translate.instant("internet_error"));
+            }
+
         });
 }
 

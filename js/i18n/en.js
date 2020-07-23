@@ -12,5 +12,12 @@ const en_lang = {
     "maintenance": "Maintenance",
     "duration": "Duration",
     "done_maintenance": "Done maintenance",
-    "error_occurred": "Error occurred"
+    "error_occurred": "Error occurred",
+    "website": "Website",
+    "website_desc": "Offical website at https://wilmaplus.fi",
+    "apiserver": "API",
+    "apiserver_desc": "Engine which runs Wilma Plus",
+    "notifier": "Notifications",
+    "notifier_desc": "For Exams, Lesson Notes and Announcements",
+    "internet_error": "Check your internet connection and try again"
 }
