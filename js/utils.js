@@ -73,8 +73,7 @@ function configureMain($mdThemingProvider, $routeProvider, $locationProvider, $p
 
     $translateProvider.translations('en', en_lang);
 
-    // $translateProvider.preferredLanguage((navigator.language.includes("fi-FI")) ? "fi" : "en");
-    $translateProvider.preferredLanguage("en");
+    $translateProvider.preferredLanguage((navigator.language.includes("fi-FI")) ? "fi" : "en");
 
     $mdThemingProvider.definePalette('wilmaPlusTheme', {
         '50': 'e9e9e9',
